@@ -1,0 +1,28 @@
+BEGIN
+    // Input: arr is an array of elements to be sorted
+    // Output: arr is sorted in ascending order
+
+    // Get the length of the array
+    n = LENGTH(arr)
+
+    // Iterate through the array starting from the second element
+    FOR i FROM 1 TO n - 1
+        // Pick the current element to be inserted into the sorted sequence
+        currentElement = arr[i]
+
+        // Start from the last element of the sorted sequence (arr[0] to arr[i-1])
+        j = i - 1
+
+        // Move elements greater than currentElement to one position ahead of their current position
+        WHILE j >= 0 AND arr[j] > currentElement
+            arr[j + 1] = arr[j]
+            j = j - 1
+        END WHILE
+
+        // Insert the currentElement into its correct position in the sorted sequence
+        arr[j + 1] = currentElement
+    END FOR
+
+    // Output the sorted array
+    OUTPUT "Sorted array:", arr
+END
